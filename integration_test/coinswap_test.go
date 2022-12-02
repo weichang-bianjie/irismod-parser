@@ -21,6 +21,14 @@ func (s IntegrationTestSuite) TestCoinswap() {
 			"removeLiquidity",
 			removeLiquidity,
 		},
+		{
+			"addUnilateralLiquidity",
+			addUnilateralLiquidity,
+		},
+		{
+			"removeUnilateralLiquidity",
+			removeUnilateralLiquidity,
+		},
 	}
 
 	for _, t := range cases {
@@ -80,6 +88,42 @@ func removeLiquidity(s IntegrationTestSuite) {
 	for _, irismod := range authTx.GetMsgs() {
 		if bankDoc, ok := s.Coinswap.HandleTxMsg(irismod); ok {
 			fmt.Println(utils.MarshalJsonIgnoreErr(bankDoc))
+		}
+	}
+}
+
+func addUnilateralLiquidity(s IntegrationTestSuite) {
+	SetBech32Prefix(Bech32PrefixAccAddr, Bech32PrefixAccPub, Bech32PrefixValAddr,
+		Bech32PrefixValPub, Bech32PrefixConsAddr, Bech32PrefixConsPub)
+	txBytes, err := hex.DecodeString("")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	authTx, err := GetSigningTx(txBytes)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	for _, irismod := range authTx.GetMsgs() {
+		if doc, ok := s.Coinswap.HandleTxMsg(irismod); ok {
+			fmt.Println(utils.MarshalJsonIgnoreErr(doc))
+		}
+	}
+}
+
+func removeUnilateralLiquidity(s IntegrationTestSuite) {
+	SetBech32Prefix(Bech32PrefixAccAddr, Bech32PrefixAccPub, Bech32PrefixValAddr,
+		Bech32PrefixValPub, Bech32PrefixConsAddr, Bech32PrefixConsPub)
+	txBytes, err := hex.DecodeString("")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	authTx, err := GetSigningTx(txBytes)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	for _, irismod := range authTx.GetMsgs() {
+		if doc, ok := s.Coinswap.HandleTxMsg(irismod); ok {
+			fmt.Println(utils.MarshalJsonIgnoreErr(doc))
 		}
 	}
 }
