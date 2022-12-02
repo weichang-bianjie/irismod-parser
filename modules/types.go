@@ -15,9 +15,11 @@ import (
 
 const (
 	//coinswap
-	MsgTypeAddLiquidity    = "add_liquidity"
-	MsgTypeRemoveLiquidity = "remove_liquidity"
-	MsgTypeSwapOrder       = "swap_order"
+	MsgTypeAddLiquidity              = "add_liquidity"
+	MsgTypeRemoveLiquidity           = "remove_liquidity"
+	MsgTypeSwapOrder                 = "swap_order"
+	MsgTypeAddUnilateralLiquidity    = "add_unilateral_liquidity"
+	MsgTypeRemoveUnilateralLiquidity = "remove_unilateral_liquidity"
 	//farm
 	MsgTypeCreatePool     = "create_pool"
 	MsgTypeCreateProposal = "create_pool_with_community_pool"
@@ -78,9 +80,11 @@ const (
 
 type (
 	//coinswap
-	MsgSwapOrder       = coinswap.MsgSwapOrder
-	MsgAddLiquidity    = coinswap.MsgAddLiquidity
-	MsgRemoveLiquidity = coinswap.MsgRemoveLiquidity
+	MsgSwapOrder                 = coinswap.MsgSwapOrder
+	MsgAddLiquidity              = coinswap.MsgAddLiquidity
+	MsgRemoveLiquidity           = coinswap.MsgRemoveLiquidity
+	MsgAddUnilateralLiquidity    = coinswap.MsgAddUnilateralLiquidity
+	MsgRemoveUnilateralLiquidity = coinswap.MsgRemoveUnilateralLiquidity
 
 	//farm
 	MsgUnstake                      = farm.MsgUnstake

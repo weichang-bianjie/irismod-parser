@@ -24,6 +24,12 @@ func (coinswap CoinswapClient) HandleTxMsg(v types.Msg) (MsgDocInfo, bool) {
 	case *MsgSwapOrder:
 		docMsg := DocTxMsgSwapOrder{}
 		return docMsg.HandleTxMsg(msg), true
+	case *MsgAddUnilateralLiquidity:
+		docMsg := DocTxAddUnilateralLiquidity{}
+		return docMsg.HandleTxMsg(msg), true
+	case *MsgRemoveUnilateralLiquidity:
+		docMsg := DocTxMsgRemoveUnilateralLiquidity{}
+		return docMsg.HandleTxMsg(msg), true
 	default:
 		return MsgDocInfo{}, false
 	}
