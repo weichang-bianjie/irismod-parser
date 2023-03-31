@@ -1,6 +1,7 @@
 package msgs
 
 import (
+	evm "github.com/evmos/ethermint/x/evm/types"
 	coinswap "github.com/irisnet/irismod/modules/coinswap/types"
 	farm "github.com/irisnet/irismod/modules/farm/types"
 	htlc "github.com/irisnet/irismod/modules/htlc/types"
@@ -76,6 +77,7 @@ const (
 	MsgTypeEditToken          = "edit_token"
 	MsgTypeIssueToken         = "issue_token"
 	MsgTypeTransferTokenOwner = "transfer_token_owner"
+	MsgTypeEthereumTx         = "ethereum_tx"
 )
 
 type (
@@ -150,4 +152,7 @@ type (
 	MsgBurnToken          = token.MsgBurnToken
 	MsgMintToken          = token.MsgMintToken
 	MsgTransferTokenOwner = token.MsgTransferTokenOwner
+
+	//evm
+	MsgEthereumTx = evm.MsgEthereumTx
 )
