@@ -4,6 +4,7 @@ import (
 	. "github.com/kaifei-bianjie/common-parser"
 	"github.com/kaifei-bianjie/irismod-parser/codec"
 	"github.com/kaifei-bianjie/irismod-parser/modules/coinswap"
+	"github.com/kaifei-bianjie/irismod-parser/modules/evm"
 	"github.com/kaifei-bianjie/irismod-parser/modules/farm"
 	"github.com/kaifei-bianjie/irismod-parser/modules/htlc"
 	"github.com/kaifei-bianjie/irismod-parser/modules/mt"
@@ -26,6 +27,7 @@ type MsgClient struct {
 	Record   Client
 	Service  Client
 	Token    Client
+	Evm      Client
 }
 
 func NewMsgClient() MsgClient {
@@ -41,5 +43,6 @@ func NewMsgClient() MsgClient {
 		Record:   record.NewClient(),
 		Service:  service.NewClient(),
 		Token:    token.NewClient(),
+		Evm:      evm.NewClient(),
 	}
 }
