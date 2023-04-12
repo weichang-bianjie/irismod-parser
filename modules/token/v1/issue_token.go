@@ -1,4 +1,4 @@
-package token
+package v1
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	. "github.com/kaifei-bianjie/irismod-parser/modules"
 )
 
-type DocMsgIssueToken struct {
+type DocMsgIssueTokenV1 struct {
 	Symbol        string `bson:"symbol"`
 	Name          string `bson:"name"`
 	Scale         uint32 `bson:"scale"`
@@ -17,12 +17,12 @@ type DocMsgIssueToken struct {
 	Owner         string `bson:"owner"`
 }
 
-func (m *DocMsgIssueToken) GetType() string {
+func (m *DocMsgIssueTokenV1) GetType() string {
 	return MsgTypeIssueToken
 }
 
-func (m *DocMsgIssueToken) BuildMsg(v interface{}) {
-	msg := v.(*MsgIssueToken)
+func (m *DocMsgIssueTokenV1) BuildMsg(v interface{}) {
+	msg := v.(*MsgIssueTokenV1)
 
 	m.Symbol = msg.Symbol
 	m.Name = msg.Name
@@ -34,10 +34,10 @@ func (m *DocMsgIssueToken) BuildMsg(v interface{}) {
 	m.Mintable = msg.Mintable
 }
 
-func (m *DocMsgIssueToken) HandleTxMsg(v SdkMsg) MsgDocInfo {
+func (m *DocMsgIssueTokenV1) HandleTxMsg(v SdkMsg) MsgDocInfo {
 	var addrs []string
 
-	msg := v.(*MsgIssueToken)
+	msg := v.(*MsgIssueTokenV1)
 	addrs = append(addrs, msg.Owner)
 	handler := func() (Msg, []string) {
 		return m, addrs

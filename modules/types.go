@@ -11,7 +11,8 @@ import (
 	random "github.com/irisnet/irismod/modules/random/types"
 	record "github.com/irisnet/irismod/modules/record/types"
 	service "github.com/irisnet/irismod/modules/service/types"
-	token "github.com/irisnet/irismod/modules/token/types"
+	tokenv1 "github.com/irisnet/irismod/modules/token/types/v1"
+	tokenv1beta1 "github.com/irisnet/irismod/modules/token/types/v1beta1"
 )
 
 const (
@@ -76,6 +77,7 @@ const (
 	MsgTypeBurnToken          = "burn_token"
 	MsgTypeEditToken          = "edit_token"
 	MsgTypeIssueToken         = "issue_token"
+	MsgTypeSwapFeeToken       = "swap_fee_token"
 	MsgTypeTransferTokenOwner = "transfer_token_owner"
 	MsgTypeEthereumTx         = "ethereum_tx"
 )
@@ -146,12 +148,20 @@ type (
 	MsgUpdateRequestContext  = service.MsgUpdateRequestContext
 	MsgWithdrawEarnedFees    = service.MsgWithdrawEarnedFees
 
-	//token
-	MsgIssueToken         = token.MsgIssueToken
-	MsgEditToken          = token.MsgEditToken
-	MsgBurnToken          = token.MsgBurnToken
-	MsgMintToken          = token.MsgMintToken
-	MsgTransferTokenOwner = token.MsgTransferTokenOwner
+	//token v1beta1
+	MsgIssueToken         = tokenv1beta1.MsgIssueToken
+	MsgEditToken          = tokenv1beta1.MsgEditToken
+	MsgBurnToken          = tokenv1beta1.MsgBurnToken
+	MsgMintToken          = tokenv1beta1.MsgMintToken
+	MsgTransferTokenOwner = tokenv1beta1.MsgTransferTokenOwner
+
+	//token v1
+	MsgIssueTokenV1         = tokenv1.MsgIssueToken
+	MsgEditTokenV1          = tokenv1.MsgEditToken
+	MsgBurnTokenV1          = tokenv1.MsgBurnToken
+	MsgMintTokenV1          = tokenv1.MsgMintToken
+	MsgTransferTokenOwnerV1 = tokenv1.MsgTransferTokenOwner
+	MsgSwapFeeTokenV1       = tokenv1.MsgSwapFeeToken
 
 	//evm
 	MsgEthereumTx = evm.MsgEthereumTx

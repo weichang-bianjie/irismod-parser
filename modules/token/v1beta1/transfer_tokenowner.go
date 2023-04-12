@@ -1,4 +1,4 @@
-package token
+package v1beta1
 
 import (
 	. "github.com/kaifei-bianjie/common-parser/modules"
