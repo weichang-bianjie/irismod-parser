@@ -9,10 +9,11 @@ import (
 
 // MsgEthereumTx encapsulates an Ethereum transaction as an SDK message.
 type DocMsgEthereumTx struct {
-	Data  string  `bson:"data"`
-	Size_ float64 `bson:"size"`
-	Hash  string  `bson:"hash"`
-	From  string  `bson:"from"`
+	Data     string  `bson:"data"`
+	Size_    float64 `bson:"size"`
+	Hash     string  `bson:"hash"`
+	From     string  `bson:"from"`
+	FeePayer string  `bson:"fee_payer"`
 }
 
 func (doctx *DocMsgEthereumTx) GetType() string {
@@ -24,6 +25,7 @@ func (doctx *DocMsgEthereumTx) BuildMsg(txMsg interface{}) {
 	doctx.Size_ = msg.Size_
 	doctx.Hash = msg.Hash
 	doctx.From = msg.From
+	doctx.FeePayer = msg.FeePayer
 	if txData, err := evm.UnpackTxData(msg.Data); err == nil {
 		doctx.Data = utils.MarshalJsonIgnoreErr(txData)
 	}
